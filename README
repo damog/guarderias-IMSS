@@ -1,0 +1,19 @@
+Esta es la extracción de la base de datos de las guarderías subrogadas
+del IMSS (Instituto Mexicano del Seguro Social) hecha pública por la
+Secretaría de Salud de México el miércoles 8 de julio de 2009.
+
+Nota al respecto:
+ http://www.eluniversal.com.mx/notas/610987.html
+
+El único objetivo por el que intento hacer pública esta información
+es porque me parece altamente pendejo que el IMSS la libere por
+petición del IFAI como una forma en JavaScript sin que pueda
+procesarse correctamente programáticamente.
+
+El usuario de estos scripts y esta información debe apegarse a los
+avisos legales de uso de la página del IMSS:
+ http://imss.gob.mx/legal.htm
+
+...sin embargo, si no lo hace, en realidad puede valer 256 KBps de
+ñonga.
+
