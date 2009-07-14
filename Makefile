@@ -16,7 +16,3 @@ all: clean
 	echo "Third script..."
 	perl 03-third.pl
 	echo " ...done"
-	
-	echo "Fourth script..."
-	perl 04-forth.pl
-	echo " ...done"
