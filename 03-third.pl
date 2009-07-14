@@ -5,6 +5,7 @@ use Storable;
 use Data::Dumper;
 use LWP::UserAgent;
 use JSON::Any;
+use YAML::Syck;
 use Data::Format::HTML;
 
 my $payload = qq#callCount=1
@@ -22,6 +23,8 @@ batchId=2#;
 -d 'save' && -w 'save' or mkdir 'save';
 
 opendir(my $dir, ".") or die "Couldn't open it :(";
+
+my $y = [];
 
 for my $d (readdir($dir)) {
 	next unless $d =~ /^_s___/;
@@ -45,6 +48,8 @@ for my $d (readdir($dir)) {
 		$res->content =~ /({.*})/;
 		my $struct = $1;
 		
+		say $g->{identificador};
+		
 		my(@el) = $struct =~ /(\w+?):"(.*?)"/gis;
 		
 		my $guarderia = {};
@@ -54,6 +59,8 @@ for my $d (readdir($dir)) {
 		
 		$g->{detalle} = $guarderia;
 		$g->{identificador} =~ s/\%([A-Fa-f0-9]{2})/pack('C', hex($1))/seg;
+		
+		push @$y, $g;
 		
 		my $f = Data::Format::HTML->new;
 		open my $fh, ">", 'html/'.$d.'/'.$g->{identificador}.'.html' or die 'boo!';
@@ -66,3 +73,5 @@ for my $d (readdir($dir)) {
 	
 	say $d.'!!';
 }
+
+DumpFile('dump.yaml', $y);
