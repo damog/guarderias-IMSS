@@ -22,7 +22,7 @@ batchId=2#;
 -d 'html' && -w 'html' or mkdir 'html';
 -d 'save' && -w 'save' or mkdir 'save';
 
-opendir(my $dir, ".") or die "Couldn't open it :(";
+opendir(my $dir, "tmp/") or die "Couldn't open it :(";
 
 my $y = [];
 

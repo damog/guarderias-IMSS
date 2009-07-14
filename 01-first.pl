@@ -34,7 +34,7 @@ while(<DATA>) {
 	
 	my $res = $ua->request($req);
 	
-	open my $fh, ">", '___'.$last or die "Moo! $last: $!";
+	open my $fh, ">", 'tmp/'.'___'.$last or die "Moo! $last: $!";
 	print $fh $res->content;
 	close $fh;
 }

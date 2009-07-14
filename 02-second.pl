@@ -4,7 +4,7 @@ use Modern::Perl;
 use Data::Dumper;
 use Storable;
 
-opendir(my $dir, ".") or die "Couldn't open it :(";
+opendir(my $dir, "tmp/") or die "Couldn't open it :(";
 
 for my $d (readdir($dir)) {
 	next unless $d =~ /^___/;
@@ -36,6 +36,6 @@ for my $d (readdir($dir)) {
 		# say $t->{parameters};
 	}
 
-	store $r, '_s_'.$d;
+	store $r, 'tmp/_s_'.$d;
 	
 }
