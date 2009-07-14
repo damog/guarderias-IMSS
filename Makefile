@@ -2,7 +2,7 @@
 
 clean:
 	rm -rf html/ save/
-	rm -rf tmp/*
+	rm -rf tmp/_*
 
 all: clean
 	echo "First script..."
