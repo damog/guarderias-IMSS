@@ -31,7 +31,7 @@ for my $d (readdir($dir)) {
 	
 	-d 'html/'.$d and -w 'html/'.$d or mkdir 'html/'.$d;
 		
-	my $ref = retrieve $d;
+	my $ref = retrieve 'tmp/'.$d;
 	
 	for my $g (@$ref) {
 		my $p = $payload;

@@ -9,7 +9,7 @@ opendir(my $dir, "tmp/") or die "Couldn't open it :(";
 for my $d (readdir($dir)) {
 	next unless $d =~ /^___/;
 	
-	open my $fh, $d or die;
+	open my $fh, 'tmp/'.$d or die $!;
 
 	local $/ = undef;
 	my $js = <$fh>;
