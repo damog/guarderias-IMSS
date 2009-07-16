@@ -1,3 +1,4 @@
 html/*
+www/log/*.log
 save/*
 tmp/*

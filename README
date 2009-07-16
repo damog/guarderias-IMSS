@@ -17,3 +17,98 @@ avisos legales de uso de la página del IMSS:
 ...sin embargo, si no lo hace, en realidad puede valer 256 KBps de
 ñonga.
 
+INSTALL
+=======================================================================
+
+Bueno, todo mundo debería correr esto en su máquina, es lo mejor que
+podemos hacer como ciudadanos y geeks. Al correr estos scripts en
+nuestra máquina, estamos haciendo historia de todos los cambios que
+la gente del IMSS hace en su "base de datos".
+
+El proceso de instalación es muy fácil si estás familiarizado con la
+instalación de mierdas en Linux/Unix/Mac. De entrada, la cosa debería
+funcionar en Windows, pero no me interesa descubrir si funciona.
+
+Lo que necesitas tener instalado a grandes rasgos es:
+
+- Perl
+- Ruby
+- Rails
+- MySQL
+
+Rails y MySQL son únicamente necesarios para la parte Web que estamos
+levantando. Quizás no te interese, pero es chido tenerlo.
+
+El proceso es:
+
+- Le succionamos la mierda de la forma de JavaScript que el IMSS tiene
+  en su portal.
+- Botamos toda la información en un YAML.
+- Se usa ese YAML para poblar una base de datos.
+- Y ya.
+
+Entonces, para obtener la base de datos tú mismo, necesitas tener los
+siguientes módulos de Perl instalados:
+
+- Modern::Perl
+- WWW::Mechanize
+- JSON::Any
+- YAML::Syck
+- Data::Format::HTML
+
+Y otros módulos que ya vienen en el core de Perl entonces no necesitas
+instalar.
+
+Para instalarlos, simplemente puedes correr:
+
+$ sudo cpan Modern::Perl WWW::Mechanize JSON::Any YAML::Syck Data::Format::HTML
+
+Es importante que tengas Perl 5.10 porque ya tiene dos años como estable
+y la gente debería quemar con leña verde 5.8 y actualizarse.
+
+Una vez instalado todo, simplemente ve a la raíz y haz:
+
+$ make all
+
+Esa madre va a correr tres scripts (pudo haber sido uno pero pues era más
+en chinga hacerlo separado). Si todo sale bien, vas a tener un bonito
+archivo dump.yaml con toda la información que los putos del IMSS han
+liberado. Ese archivo, como ya eres muy cabrón, puedes procesarlo con tu
+lenguaje de programación favorito y tu biblioteca YAMLesca para hacer
+lo que te plazca. En nuestro caso, estamos implementando una interfaz
+pública Web para que la gente pueda ver, buscar y opinar sobre cada una
+de las guarderías y desenmascaren a los cabrones que se están haciendo
+un negociazo con ellas.
+
+Piensen en los niños, culeros!
+
+Si te interesa, instala Rails y demás porquerías:
+
+$ sudo gem install rails
+
+y:
+
+$ cd www
+
+$ mysql -u root -p # tu server MySQL
+mysql> create database guarderias;
+mysql> exit
+
+$ rake db:migrate
+
+Y esa madre te hará una bonita relación de guarderías (nurseries),
+localidades (localities) y delegaciones (delegations). Lo hicimos en
+inglés porque somos bien pitudos (nah, pues porque ActiveRecord maneja
+mejor la pluralización en inglés desde luego, you know what I mean?).
+
+Y pues ya. Actualizaré este README en cuanto tenga nuevas noticias.
+
+Si tienes dudas técnicas sobre cómo hacer jalar esta cosa, mándame un
+correo <david@axiombox.com>. Si tienes intereses políticos, lo mejor
+es que consultes a mi compa el Andrés (twitter.com/andreslajous). Y pues
+si te latió, pues síguennos en Twitter o invítanos unos tacos de
+cabeza (los de paladar son chidos).
+
+David Moreno
+ http://damog.net/
+ http://twitter.com/damog

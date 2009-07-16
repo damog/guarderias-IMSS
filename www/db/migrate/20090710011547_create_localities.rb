@@ -2,8 +2,7 @@ class CreateLocalities < ActiveRecord::Migration
   def self.up
     create_table :localities do |t|
       t.string :name
-      t.integer :region_id
-
+      t.integer :delegation_id
       t.timestamps
     end
   end
