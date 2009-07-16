@@ -5,6 +5,9 @@ clean:
 	rm -rf tmp/_*
 
 all: clean
+
+	mkdir html save tmp
+
 	echo "First script..."
 	perl 01-first.pl
 	
