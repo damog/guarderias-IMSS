@@ -1,0 +1,18 @@
+<h1>Localidades para <%= @del.name %></h1>
+
+<ul>
+<% @loc.each do |l| %>
+	<li><%= link_to l.name,
+		:controller => "localities",
+		:action		=> "show",
+		:id			=> l.id
+	%></li>
+<% end %>
+</ul>
+
+<p>
+	<%= link_to "Otras delegaciones",
+		:controller	=> "site",
+		:action		=> "home"
+		%>
+</p>

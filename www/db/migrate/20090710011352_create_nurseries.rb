@@ -21,8 +21,8 @@ class CreateNurseries < ActiveRecord::Migration
       t.string :detalle_repreLegalIMSS
       t.string :detalle_repreLegalOriginarioPrestServ
       t.string :detalle_repreLegalPrestServicios
-      t.string :detalle_sociosOrigFundPrestServ
-      t.string :detalle_sociosPrestServicio
+      t.text :detalle_sociosOrigFundPrestServ
+      t.text :detalle_sociosPrestServicio
       t.string :detalle_vigenciaInicio
       t.string :detalle_vigenciaTermino
       t.string :directora

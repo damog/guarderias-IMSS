@@ -1,0 +1,95 @@
+<h1><%= @nur.nombreRz %></h1>
+<h2><%= @nur.locality.name %></h2>
+<h3><%= @nur.locality.delegation.name %></h3>
+
+<table border="1">
+	
+	<tr>
+		<th>Capacidad instalada</th>
+		<td><%= @nur.detalle_capacidadInstalada %></td>
+	</tr>
+	
+	<tr>
+		<th>Cuota unitaria</th>
+		<td><%= @nur.detalle_cuotaUnitaria %></td>
+	</tr>
+	
+	<tr>
+		<th>Inicio de operación (dice)</th>
+		<td><%= @nur.detalle_inicioOperacion %></td>
+	</tr>
+
+	<tr>
+		<th>Inicio de operación (debe decir)</th>
+		<td><%= @nur.detalle_inicioOperacionCorregido %></td>
+	</tr>
+	
+	<tr>
+		<th>Vigencia del contrato actual</th>
+		<td>Del <%= @nur.detalle_vigenciaInicio %> al <%= @nur.detalle_vigenciaTermino %></td>
+	</tr>
+
+	<tr>
+		<th>Tipo de contratación</th>
+		<td><%= @nur.detalle_esquemaContratacion %></td>
+	</tr>
+
+	<tr>
+		<th>Representante legal actual</th>
+		<td><%= @nur.detalle_repreLegalPrestServicios %></td>
+	</tr>
+	
+	<tr>
+		<th>Representante legal original</th>
+		<td><%= @nur.detalle_repreLegalOriginarioPrestServ %>
+	</tr>
+	
+	<tr>
+		<th>Socios actuales</th>
+		<td><%= @nur.detalle_sociosPrestServicio.gsub(',', '<br>') %>
+	</tr>
+	
+	<tr>
+		<th>Socios originales</th>
+		<td><%= @nur.detalle_sociosOrigFundPrestServ.gsub(',', '<br>') %>
+	</tr>
+	
+	<tr>
+		<th>Directora</th>
+		<td><%= @nur.detalle_directora %></td>
+	</tr>
+	
+</table>
+
+<h4>Toda la información</h4>
+
+<p>
+<%= debug @nur %>
+</p>
+
+<h4>Comentarios de la banda</h4>
+
+<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/guarderiasimss/embed.js"></script>
+
+<p>
+	<%= link_to "Otras guarderías en #{@nur.locality.name}",
+	 	:controller 	=> "localities",
+		:action			=> "show",
+		:id				=> @nur.locality.id
+	%>
+</p>
+
+<p>
+	<%= link_to "Otras localidades en #{@nur.locality.delegation.name}",
+	 	:controller 	=> "delegations",
+		:action			=> "show",
+		:id				=> @nur.locality.delegation.id
+	%>
+</p>
+
+<p>
+	<%= link_to "Otras delegaciones",
+		:controller	=> "site",
+		:action		=> "home"
+		%>
+</p>

@@ -1,0 +1,27 @@
+<h1>Guarderías para la localidad <%= @loc.name %></h1>
+<h2>Delegación <%= @loc.delegation.name %></h2>
+
+<ul>
+	<% @nur.each do |g| %>
+		<li><%= link_to g.nombreRz,
+			:controller => "nurseries",
+			:action		=> "show",
+			:id			=> g.id
+		 %></li>
+	<% end %>
+</ul>
+
+<p>
+	<%= link_to "Otras localidades en #{@loc.delegation.name}",
+	 	:controller 	=> "delegations",
+		:action			=> "show",
+		:id				=> @loc.delegation.id
+	%>
+</p>
+
+<p>
+	<%= link_to "Otras delegaciones",
+		:controller	=> "site",
+		:action		=> "home"
+		%>
+</p>

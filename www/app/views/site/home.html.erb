@@ -1,0 +1,10 @@
+<h1>Listado de delegaciones</h1>
+
+<ul>
+<% @del.each do |d| %>
+	<li><%= link_to d.name,
+		:controller 	=> "delegations",
+		:action 		=> "show",
+		:id				=> d.id %></li>
+<% end %>
+</ul>
